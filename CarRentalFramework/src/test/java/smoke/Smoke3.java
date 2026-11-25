@@ -28,6 +28,7 @@ public class Smoke3 extends BaseClass {
 		//driver.findElement(By.xpath("//a[text()='Car Listing']")).click();
 		HomePage hp=new HomePage(driver);
 		hp.getCarListing().click();
+		System.out.println("Success");
 		
 	}
 

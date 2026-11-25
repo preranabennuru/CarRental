@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [SeleniumGroupSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="GroupExecutionTest(failed)">
+    <groups>
+      <run>
+        <include name="Smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="smoke.Smoke2">
+        <methods>
+          <include name="test"/>
+          <include name="ConfigAM"/>
+          <include name="configBS"/>
+          <include name="ConfigBM"/>
+          <include name="ConfigBC"/>
+          <include name="ConfigAC"/>
+          <include name="ConfigAS"/>
+        </methods>
+      </class> <!-- smoke.Smoke2 -->
+      <class name="smoke.Smoke1">
+        <methods>
+          <include name="ConfigAM"/>
+          <include name="configBS"/>
+          <include name="ConfigBM"/>
+          <include name="ConfigBC"/>
+          <include name="test"/>
+          <include name="ConfigAS"/>
+          <include name="ConfigAC"/>
+        </methods>
+      </class> <!-- smoke.Smoke1 -->
+      <class name="smoke.Smoke3">
+        <methods>
+          <include name="ConfigAM"/>
+          <include name="configBS"/>
+          <include name="ConfigBM"/>
+          <include name="ConfigBC"/>
+          <include name="test"/>
+          <include name="ConfigAC"/>
+          <include name="ConfigAS"/>
+        </methods>
+      </class> <!-- smoke.Smoke3 -->
+    </classes>
+  </test> <!-- GroupExecutionTest(failed) -->
+</suite> <!-- Failed suite [SeleniumGroupSuite] -->

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="tests" name="TestRunner-Chrome(failed)">
+    <parameter name="BROWSER" value="chrome"/>
+    <classes>
+      <class name="smoke.Smoke3">
+        <methods>
+          <include name="ConfigAM"/>
+          <include name="configBS"/>
+          <include name="ConfigBM"/>
+          <include name="ConfigBC"/>
+          <include name="test"/>
+          <include name="ConfigAC"/>
+          <include name="ConfigAS"/>
+        </methods>
+      </class> <!-- smoke.Smoke3 -->
+    </classes>
+  </test> <!-- TestRunner-Chrome(failed) -->
+  <test thread-count="2" parallel="tests" name="TestRunner-Firefox(failed)">
+    <parameter name="BROWSER" value="firefox"/>
+    <classes>
+      <class name="smoke.Smoke3">
+        <methods>
+          <include name="ConfigAM"/>
+          <include name="configBS"/>
+          <include name="ConfigBM"/>
+          <include name="ConfigBC"/>
+          <include name="test"/>
+          <include name="ConfigAC"/>
+          <include name="ConfigAS"/>
+        </methods>
+      </class> <!-- smoke.Smoke3 -->
+    </classes>
+  </test> <!-- TestRunner-Firefox(failed) -->
+</suite> <!-- Failed suite [Suite] -->

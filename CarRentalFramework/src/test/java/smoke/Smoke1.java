@@ -25,6 +25,7 @@ public class Smoke1 extends BaseClass{
 		driver.get(URL);
 
 	}*/
+		System.out.println("Supriya");
 
 }
 }

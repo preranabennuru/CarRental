@@ -18,7 +18,7 @@
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-ooxml</artifactId>
     <version>4.1.2</version>
-    <scope>compile</scope>
+    
 </dependency>
 
 <!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
@@ -26,7 +26,7 @@
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>7.12.0</version>
-    <scope>test</scope>
+   
 </dependency>
   
   
@@ -35,7 +35,7 @@
     <groupId>org.apache.poi</groupId>
     <artifactId>poi</artifactId>
     <version>4.1.2</version>
-    <scope>compile</scope>
+   
 </dependency>
 
 <!-- Source: https://mvnrepository.com/artifact/com.aventstack/extentreports -->
@@ -43,7 +43,7 @@
     <groupId>com.aventstack</groupId>
     <artifactId>extentreports</artifactId>
     <version>5.1.2</version>
-    <scope>compile</scope>
+    
 </dependency>
 
 <!-- Source: https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
@@ -51,7 +51,7 @@
     <groupId>com.mysql</groupId>
     <artifactId>mysql-connector-j</artifactId>
     <version>26.10.0</version>
-    <scope>compile</scope>
+    
 </dependency>
 <!-- Source: https://mvnrepository.com/artifact/junit/junit -->
 <dependency>
@@ -63,5 +63,75 @@
 
 
   </dependencies>
+  
+  <profiles>
+		<profile>
+			<id>RT</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<suiteXmlFiles>
+								<suiteXmlFile>regressionSuite.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>ST</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<suiteXmlFiles>
+								<suiteXmlFile>SystemSuite.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>RRT</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<suiteXmlFiles>
+								<suiteXmlFile>ReginalRegressionTesting.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>FailedTS</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<suiteXmlFiles>
+								<suiteXmlFile>testng-failed.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>

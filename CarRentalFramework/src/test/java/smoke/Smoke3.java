@@ -29,6 +29,7 @@ public class Smoke3 extends BaseClass {
 		HomePage hp=new HomePage(driver);
 		hp.getCarListing().click();
 		System.out.println("Success");
+		System.out.println("Hurrryy");
 		
 	}
 

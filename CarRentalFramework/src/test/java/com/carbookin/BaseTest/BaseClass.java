@@ -19,12 +19,10 @@ import org.testng.annotations.Parameters;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.beust.jcommander.Parameter;
+import com.car.generic.databaseutility.DataBaseUtility;
 import com.car.generic.fileUtility.ExcelUtility;
 import com.car.generic.fileUtility.FileUtility;
 import com.car.generic.webdriverUtility.WebDriverUtility;
-import com.car.objectrepository.AdminLoginPage;
-import com.car.objectrepository.LoginPage;
 
 public class BaseClass {
 	//Create Object
@@ -34,14 +32,15 @@ public class BaseClass {
 	public WebDriverUtility wutil =new WebDriverUtility();
 	public ExcelUtility eutil=new ExcelUtility();
 	public FileUtility jutil=new FileUtility();
+	public DataBaseUtility dutil=new DataBaseUtility(); 
 	//public ExtentSparkReporter spark;
 	public ExtentReports report;
 	
 	@BeforeSuite(alwaysRun = true)
 	//Db Connection
-	public void configBS()throws SQLException{
+	public void configBS()throws Exception{
 		System.out.println("===Connect to DB,Report Config===");
-		//dLib.getDbconnection();*/
+		dutil.getDbconnection();
 	//Extent Report
 	//Configuration of the report
 	ExtentSparkReporter spark=new ExtentSparkReporter("./AdvanceReport/report.html");
@@ -112,13 +111,16 @@ public class BaseClass {
 	@AfterClass(alwaysRun = true)
 	//Quit the browser
 public void ConfigAC() {
-		
+		System.out.println("===close the browser==");
+		driver.quit();
 	}
 	
 	@AfterSuite(alwaysRun = true)
 	//Close the Db Connection
-
-public void ConfigAS() {
+public void ConfigAS() throws SQLException {
+		System.out.println("===close DB,report backup===");
+		dutil.closeDbconnection();
+		
 		
 	}
 	

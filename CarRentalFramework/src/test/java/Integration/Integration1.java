@@ -24,7 +24,6 @@ public class Integration1 extends BaseClass{
 		
 		Properties pObj=new Properties();
 		pObj.load(fis);
-		
 		String BROWSER=pObj.getProperty("browser");
 		String URL=pObj.getProperty("url");
 		driver.get(URL);*/
